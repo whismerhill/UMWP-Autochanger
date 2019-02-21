@@ -18,22 +18,22 @@
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="60"/>
+        <location filename="../../gui/configdialog.ui" line="70"/>
         <source>Language :</source>
         <translation>Язык:</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="43"/>
+        <location filename="../../gui/configdialog.ui" line="53"/>
         <source>Delay :</source>
         <translation>Задержка:</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="85"/>
+        <location filename="../../gui/configdialog.ui" line="116"/>
         <source>Minimize on startup</source>
         <translation>Сворачивать при запуске</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="92"/>
+        <location filename="../../gui/configdialog.ui" line="123"/>
         <source>Check updates</source>
         <translation>Проверить обновления</translation>
     </message>
@@ -43,122 +43,107 @@
         <translation>Общее</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="108"/>
+        <location filename="../../gui/configdialog.ui" line="43"/>
         <source>File editor :</source>
         <translation>Файловый редактор:</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="316"/>
-        <source>Mode :</source>
-        <translation>Режим:</translation>
-    </message>
-    <message>
-        <location filename="../../gui/configdialog.ui" line="78"/>
+        <location filename="../../gui/configdialog.ui" line="109"/>
         <source>Start with Windows</source>
         <translation>Запускать вместе с Windows</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="99"/>
+        <location filename="../../gui/configdialog.ui" line="130"/>
         <source>Show notifications</source>
         <translation>Показывать уведомления</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="122"/>
+        <location filename="../../gui/configdialog.ui" line="141"/>
         <source>Lock</source>
         <translation>Защита</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="200"/>
+        <location filename="../../gui/configdialog.ui" line="219"/>
         <source>Password :</source>
         <translation>Пароль :</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="183"/>
+        <location filename="../../gui/configdialog.ui" line="202"/>
         <source>Current password :</source>
         <translation>Текущий пароль :</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="144"/>
+        <location filename="../../gui/configdialog.ui" line="163"/>
         <source>Enable lock</source>
         <translation>Включить защиту</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="128"/>
+        <location filename="../../gui/configdialog.ui" line="147"/>
         <source>Lock on minimize</source>
         <translation>Защитить при сворачивании</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="135"/>
-        <source>Lock everything</source>
-        <translation>Защитить всё.</translation>
+        <location filename="../../gui/configdialog.ui" line="103"/>
+        <source>Windows integration</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="230"/>
+        <location filename="../../gui/configdialog.ui" line="154"/>
+        <source>Lock everything</source>
+        <translation>Защитить всё</translation>
+    </message>
+    <message>
+        <location filename="../../gui/configdialog.ui" line="249"/>
         <source>Lock some sets</source>
         <translation>Защитить несколько наборов</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="237"/>
+        <location filename="../../gui/configdialog.ui" line="256"/>
         <source>Lock at startup</source>
         <translation>Защищать при запуске</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="244"/>
+        <location filename="../../gui/configdialog.ui" line="263"/>
         <source>Open the settings of each set to make it lockable.</source>
         <translation>Открыть настройки каждого набора чтобы сделать их защищаемыми.</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="258"/>
-        <source>Defaults</source>
-        <translation>По-умолчанию</translation>
+        <location filename="../../gui/configdialog.ui" line="88"/>
+        <source>Change set on close :</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="270"/>
-        <source>Style :</source>
-        <translation>Стиль:</translation>
-    </message>
-    <message>
-        <location filename="../../gui/configdialog.ui" line="293"/>
-        <source>Type :</source>
-        <translation>Тип:</translation>
-    </message>
-    <message>
-        <location filename="../../gui/configdialog.ui" line="329"/>
-        <source>Defaults settings for new sets.</source>
-        <translation>Настройки по-умолчанию для новых наборов.</translation>
-    </message>
-    <message>
-        <location filename="../../gui/configdialog.ui" line="337"/>
+        <location filename="../../gui/configdialog.ui" line="277"/>
         <source>Hotkeys</source>
         <translation>Горячие клавиши</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="371"/>
+        <location filename="../../gui/configdialog.ui" line="311"/>
         <source>Show/Hide :</source>
         <translation>Показать/свернуть:</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="381"/>
+        <location filename="../../gui/configdialog.ui" line="321"/>
         <source>Refresh :</source>
         <translation>Обновить:</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="411"/>
+        <location filename="../../gui/configdialog.ui" line="351"/>
         <source>Change delay :</source>
         <translation>Изменить задержку:</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="421"/>
+        <location filename="../../gui/configdialog.ui" line="361"/>
         <source>Lock/Unlock :</source>
         <translation>Блокировать/Разблокировать :</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="361"/>
+        <location filename="../../gui/configdialog.ui" line="301"/>
         <source>Start/Pause :</source>
         <translation>Старт/Пауза:</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.ui" line="391"/>
+        <location filename="../../gui/configdialog.ui" line="331"/>
         <source>Use hotkeys</source>
         <translation>Использовать горячие клавиши</translation>
     </message>
@@ -169,127 +154,87 @@
     </message>
     <message>
         <location filename="../../gui/configdialog.cpp" line="69"/>
-        <location filename="../../gui/configdialog.cpp" line="345"/>
+        <location filename="../../gui/configdialog.cpp" line="336"/>
         <source>Select program...</source>
-        <translation>Выбрать программу</translation>
+        <translation>Выбрать программу...</translation>
     </message>
     <message>
         <location filename="../../gui/configdialog.cpp" line="80"/>
-        <source>One image for each monitor</source>
-        <translation>Одно изображение для каждого монитора</translation>
+        <source>[do not change]</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="81"/>
-        <source>One image for the whole desktop</source>
-        <translation>Одно изображение на целый рабочий стол</translation>
-    </message>
-    <message>
-        <location filename="../../gui/configdialog.cpp" line="85"/>
-        <source>Center</source>
-        <translation>Центр</translation>
-    </message>
-    <message>
-        <location filename="../../gui/configdialog.cpp" line="86"/>
-        <source>Tile</source>
-        <translation>Замостить</translation>
-    </message>
-    <message>
-        <location filename="../../gui/configdialog.cpp" line="87"/>
-        <source>Stretch</source>
-        <translation>Растянуть</translation>
-    </message>
-    <message>
-        <location filename="../../gui/configdialog.cpp" line="88"/>
-        <source>Strecth proportional</source>
-        <translation>Пропорционально растянуть</translation>
-    </message>
-    <message>
-        <location filename="../../gui/configdialog.cpp" line="89"/>
-        <source>Fill</source>
-        <translation>Заполнить</translation>
-    </message>
-    <message>
-        <location filename="../../gui/configdialog.cpp" line="93"/>
-        <source>Random</source>
-        <translation>Произвольно</translation>
-    </message>
-    <message>
-        <location filename="../../gui/configdialog.cpp" line="94"/>
-        <source>Sequential</source>
-        <translation>Последовательно</translation>
-    </message>
-    <message>
-        <location filename="../../gui/configdialog.cpp" line="139"/>
+        <location filename="../../gui/configdialog.cpp" line="132"/>
         <source>Refresh</source>
         <translation>Обновить</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="140"/>
+        <location filename="../../gui/configdialog.cpp" line="133"/>
         <source>Show/Hide</source>
         <translation>Показать/Скрыть</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="141"/>
+        <location filename="../../gui/configdialog.cpp" line="134"/>
         <source>Start/Pause</source>
         <translation>Старт/Пауза</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="142"/>
+        <location filename="../../gui/configdialog.cpp" line="135"/>
         <source>Change delay</source>
         <translation>Изменить задержку</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="143"/>
+        <location filename="../../gui/configdialog.cpp" line="136"/>
         <source>Lock/Unlock</source>
         <translation>Блокировать/Разблокировать</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="157"/>
+        <location filename="../../gui/configdialog.cpp" line="150"/>
         <source>You must enter a password to activate the lock.</source>
-        <translation>Вы должны ввести пароль чтобы включить блокировку</translation>
+        <translation>Вы должны ввести пароль чтобы включить блокировку.</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="165"/>
+        <location filename="../../gui/configdialog.cpp" line="158"/>
         <source>Current lock password is invalid.</source>
         <translation>Текущий пароль блокировки неверный.</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="188"/>
+        <location filename="../../gui/configdialog.cpp" line="181"/>
         <source>Hotkey for &quot;%1&quot; already used for &quot;%2&quot;</source>
         <translation>Горячая клавиша &quot;%1&quot; уже назначена для &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="206"/>
+        <location filename="../../gui/configdialog.cpp" line="199"/>
         <source>Hotkey for &quot;%1&quot; already used for set &quot;%2&quot;</source>
         <translation>Горячая клавиша &quot;%1&quot; уже назначена для набора &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="376"/>
+        <location filename="../../gui/configdialog.cpp" line="367"/>
         <source>This option allows to lock any changes in the app configuration until a password is entered.&lt;br&gt;&lt;b&gt;Warning:&lt;/b&gt; even though the password is hashed, the config file is not secure and can be manually modified.</source>
         <translation>Эта опция позволяет блокировать любые изменения в настройках приложения до ввода пароля.&lt;br&gt;&lt;b&gt;Внимание:&lt;/b&gt; даже при зашифрованном пароле, файл настроек может быть изменён вручную.</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="148"/>
+        <location filename="../../gui/configdialog.cpp" line="141"/>
         <source>Delay can not be lower than 10 seconds</source>
         <translation>Задержка не может быть меньше 10 секунд</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="218"/>
+        <location filename="../../gui/configdialog.cpp" line="211"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="242"/>
+        <location filename="../../gui/configdialog.cpp" line="235"/>
         <source>Language changed</source>
         <translation>Язык изменён</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="243"/>
+        <location filename="../../gui/configdialog.cpp" line="236"/>
         <source>You must restart %1 to apply the new language.</source>
         <translation>Вы должны перезапустить %1 чтобы язык сменился.</translation>
     </message>
     <message>
-        <location filename="../../gui/configdialog.cpp" line="345"/>
+        <location filename="../../gui/configdialog.cpp" line="336"/>
         <source>Executables (*.exe)</source>
         <translation>Приложения (*.exe)</translation>
     </message>
@@ -429,130 +374,130 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="742"/>
+        <location filename="../../gui/mainwindow.cpp" line="755"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="417"/>
+        <location filename="../../gui/mainwindow.cpp" line="420"/>
         <source>Import configuration file</source>
         <translation>Импорт файла настроек</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="394"/>
+        <location filename="../../gui/mainwindow.cpp" line="397"/>
         <source>Export configuration file</source>
         <translation>Экспорт файла настроек</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="549"/>
+        <location filename="../../gui/mainwindow.cpp" line="552"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="396"/>
-        <location filename="../../gui/mainwindow.cpp" line="419"/>
+        <location filename="../../gui/mainwindow.cpp" line="399"/>
+        <location filename="../../gui/mainwindow.cpp" line="422"/>
         <source>XML files (*.xml)</source>
         <translation>XML файл (*.xml)</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="219"/>
+        <location filename="../../gui/mainwindow.cpp" line="222"/>
         <source>Add set</source>
         <translation>Добавить набор</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="306"/>
+        <location filename="../../gui/mainwindow.cpp" line="309"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="306"/>
+        <location filename="../../gui/mainwindow.cpp" line="309"/>
         <source>Are you sure?</source>
         <translation>Вы уверены?</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="429"/>
-        <location filename="../../gui/mainwindow.cpp" line="530"/>
-        <location filename="../../gui/mainwindow.cpp" line="570"/>
+        <location filename="../../gui/mainwindow.cpp" line="432"/>
+        <location filename="../../gui/mainwindow.cpp" line="533"/>
+        <location filename="../../gui/mainwindow.cpp" line="574"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="429"/>
+        <location filename="../../gui/mainwindow.cpp" line="432"/>
         <source>Invalid settings file</source>
         <translation>Неверный файл настроек</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="509"/>
+        <location filename="../../gui/mainwindow.cpp" line="512"/>
         <source>Unlock</source>
         <translation>Разблокировать</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="508"/>
+        <location filename="../../gui/mainwindow.cpp" line="511"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="530"/>
+        <location filename="../../gui/mainwindow.cpp" line="533"/>
         <source>Invalid password</source>
         <translation>Неверный пароль</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="553"/>
+        <location filename="../../gui/mainwindow.cpp" line="557"/>
         <source>Changelog</source>
         <translation>Список изменений</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="570"/>
+        <location filename="../../gui/mainwindow.cpp" line="574"/>
         <source>No active files</source>
         <translation>Нет активных файлов</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="610"/>
+        <location filename="../../gui/mainwindow.cpp" line="623"/>
         <source>The lock is not configured</source>
         <translation>Блокировка не настроена</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="619"/>
+        <location filename="../../gui/mainwindow.cpp" line="632"/>
         <source>Unlocked</source>
         <translation>Разблокировано</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="628"/>
+        <location filename="../../gui/mainwindow.cpp" line="641"/>
         <source>Locked</source>
         <translation>Заблокировано</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="642"/>
+        <location filename="../../gui/mainwindow.cpp" line="655"/>
         <source>Paused</source>
         <translation>Приостановлено</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="646"/>
+        <location filename="../../gui/mainwindow.cpp" line="659"/>
         <source>Running</source>
         <translation>Работает</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="672"/>
+        <location filename="../../gui/mainwindow.cpp" line="685"/>
         <source>Current sets : %1</source>
         <translation>Текущий набор: %1</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="698"/>
+        <location filename="../../gui/mainwindow.cpp" line="711"/>
         <source>A new version is available : %1</source>
         <translation>Доступна новая версия: %1</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="746"/>
+        <location filename="../../gui/mainwindow.cpp" line="759"/>
         <source>Close and don&apos;t show this message again</source>
         <translation>Закрыть и больше не показывать это сообщение</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="188"/>
+        <location filename="../../gui/mainwindow.cpp" line="190"/>
         <source>%1 is still running</source>
         <translation>%1 всё ещё работает</translation>
     </message>
     <message>
-        <location filename="../../gui/mainwindow.cpp" line="743"/>
+        <location filename="../../gui/mainwindow.cpp" line="756"/>
         <source>If you quit the application now,&lt;br&gt;the wallpaper will not change anymore.</source>
         <translation>Если вы выйдете сейчас, &lt;br&gt;обои перестанут меняться.</translation>
     </message>
@@ -725,12 +670,12 @@
         <translation>Активные файлы</translation>
     </message>
     <message>
-        <location filename="../../gui/previewdialog.cpp" line="151"/>
+        <location filename="../../gui/previewdialog.cpp" line="162"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../../gui/previewdialog.cpp" line="151"/>
+        <location filename="../../gui/previewdialog.cpp" line="162"/>
         <source>Are you sure?</source>
         <translation>Вы уверены?</translation>
     </message>
@@ -897,7 +842,7 @@
     </message>
     <message>
         <location filename="../../gui/seteditdialog.cpp" line="45"/>
-        <source>Strecth proportional</source>
+        <source>Fit</source>
         <translation>Пропорционально растянуть</translation>
     </message>
     <message>

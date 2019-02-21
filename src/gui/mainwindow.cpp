@@ -46,6 +46,8 @@ MainWindow::MainWindow(Controller* _ctrl) :
 
     connect(m_ctrl, SIGNAL(newVersionAvailable()), this, SLOT(onNewVersion()));
 
+    installEventFilter(this);
+
     init();
 }
 
@@ -165,7 +167,7 @@ void MainWindow::defineHotkeys()
  */
 void MainWindow::toggleWindow(bool _forceHide)
 {
-    if (_forceHide || isVisible())
+    if (_forceHide || isVisible() && !isMinimized())
     {
         if (!_forceHide)
         {
@@ -195,6 +197,7 @@ void MainWindow::toggleWindow(bool _forceHide)
         raise();
         setFocus();
         activateWindow();
+        setWindowState(Qt::WindowNoState);
 
         emit showHidden(true);
 
@@ -325,17 +328,6 @@ void MainWindow::openSets(const QList<Set*> _sets)
     foreach (const Set* set, _sets)
     {
         QDesktopServices::openUrl(QUrl("file:///" + set->path()));
-    }
-}
-
-/**
- * @brief Clear sets cache of selected sets
- */
-void MainWindow::clearCache()
-{
-    for (int i=0, l=m_settings->nbSets(); i<l; i++)
-    {
-        m_settings->set(i)->deleteCache();
     }
 }
 
@@ -540,7 +532,7 @@ void MainWindow::openAboutDialog()
 {
     QString text = "<h3>" + QString(APP_FILEDESCRIPTION) + " " + QString(APP_VERSION) + "</h3>";
     text+= "Created by Damien \"Mistic\" Sorel.<br>";
-    text+= "&copy; 2013-2017 <a href=\"https://strangeplanet.fr\">StrangePlanet.fr</a><br>";
+    text+= "&copy; 2013-" + QString(CURRENT_YEAR) + " <a href=\"https://strangeplanet.fr\">StrangePlanet.fr</a><br>";
     text+= "Licenced under <a href=\"https://www.gnu.org/licenses/gpl-3.0.txt\">GNU General Public License Version 3</a><br>";
     text+= "Built with <a href=\"https://www.qt.io\"><img src=\":/images/qt-logo-16.png\" style=\"vertical-align: baseline\"></a>";
 
@@ -572,8 +564,17 @@ void MainWindow::openPreviewDialog()
     }
     else
     {
+        bool isPaused = m_ctrl->paused();
+        if (!isPaused) {
+            m_ctrl->startPause();
+        }
+
         PreviewDialog dialog(this, m_ctrl);
         dialog.exec();
+
+        if (!isPaused) {
+            m_ctrl->startPause();
+        }
     }
 }
 
@@ -806,6 +807,12 @@ bool MainWindow::eventFilter(QObject* _target, QEvent* _event)
     {
         ((QInputDialog*) _target)->activateWindow();
         ((QInputDialog*) _target)->raise();
+    }
+
+    // Notify tray-menu when the window is minimized
+    if (_target == this && _event->type() == QEvent::WindowStateChange)
+    {
+        emit showHidden(!isMinimized());
     }
 
     return false;

@@ -20,9 +20,6 @@ Settings::Settings(Environment* _enviro) :
     m_options[UM::CONF::show_notifications] = true;
     m_options[UM::CONF::last_dir] = QDir::homePath();
     m_options[UM::CONF::language] = QLocale::system().name();
-    m_options[UM::CONF::default_mode] = UM::MODE_RANDOM;
-    m_options[UM::CONF::default_type] = UM::W_MONITOR;
-    m_options[UM::CONF::default_style] = UM::IM_STRETCH_PROP;
     m_options[UM::CONF::changelog_shown] = "0.0.0";
     m_options[UM::CONF::open_program] = "";
     m_options[UM::CONF::lock_enabled] = false;
@@ -31,6 +28,7 @@ Settings::Settings(Environment* _enviro) :
     m_options[UM::CONF::lock_minimize] = true;
     m_options[UM::CONF::lock_type] = UM::LOCK_ALL;
     m_options[UM::CONF::ignore_update] = "0.0.0";
+    m_options[UM::CONF::default_set] = "";
 
     m_hotkeys[UM::CONF::HOTKEY::refresh] = 0;
     m_hotkeys[UM::CONF::HOTKEY::startpause] = 0;
@@ -60,7 +58,6 @@ void Settings::check()
 
     foreach (Set* set, m_sets)
     {
-        set->populateFiles();
         set->check();
     }
 }
@@ -190,7 +187,6 @@ bool Settings::load(QString _filename)
                 else if (configNode.tagName() == "mode")
                 {
                     newMode = configNode.text() == "random" ? UM::MODE_RANDOM : UM::MODE_SEQUENTIAL;
-                    m_options[UM::CONF::default_mode] = newMode;
                 }
                 else if (m_options.contains(configNode.tagName()))
                 {
@@ -413,9 +409,9 @@ Set* Settings::addSet(const QString &_path)
     Set* set = new Set(_path, dir.dirName());
     set->init();
 
-    set->setMode(static_cast<UM::MODE>(m_options[UM::CONF::default_mode].toInt()));
-    set->setStyle(static_cast<UM::IMAGE>(m_options[UM::CONF::default_style].toInt()));
-    set->setType(static_cast<UM::WALLPAPER>(m_options[UM::CONF::default_type].toInt()));
+    set->setMode(UM::MODE_RANDOM);
+    set->setStyle(UM::IM_STRETCH_PROP);
+    set->setType(UM::W_MONITOR);
 
     m_sets.append(set);
     save();
@@ -565,6 +561,24 @@ void Settings::moveSet(int _from, int _to)
     QLOG_DEBUG() << "Move set: " << set->name() << ", " << _from << "->" << _to;
 
     save();
+}
+
+/**
+ * @brief Returns a set by it's uuid
+ * @param string _uuid
+ * @return Set*
+ */
+Set* Settings::setByUuid(const QString &_uuid) const
+{
+    foreach (Set* set, m_sets)
+    {
+        if (set->uuid() == _uuid)
+        {
+            return set;
+        }
+    }
+
+    return NULL;
 }
 
 /**

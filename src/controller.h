@@ -9,7 +9,7 @@
 #include "environment.h"
 #include "versionchecker.h"
 #include "wallpapergenerator.h"
-
+#include "directoryscanner.h"
 
 /**
  * @brief Main controller of the application
@@ -19,13 +19,23 @@ class Controller : public QObject
     Q_OBJECT
 
 private:
+    /**
+     * @brief The result of a scan & generate mapReduce
+     */
+    struct ScanAndGenerateResult {
+        int done = 0;
+        WallpaperGenerator::Result result;
+    };
+
+private:
     Settings* m_settings;
     Environment* m_enviro;
 
     QTimer* m_mainTimer;
 
     WallpaperGenerator* m_generator;
-    QFutureWatcher<WallpaperGenerator::Result> m_generatorWatcher;
+    DirectoryScanner* m_scanner;
+    QFutureWatcher<ScanAndGenerateResult> m_generatorWatcher;
 
     WallpaperGenerator::Result m_current;
 
@@ -53,8 +63,9 @@ public:
 
 public slots:
     void quit();
-    void update();
+    void update(bool _async=true);
     bool startPause();
+    void clearCache();
 
     void editSets(const QList<Set*> &_sets, const Set &_data);
     void moveSet(int _from, int _to);
@@ -70,6 +81,7 @@ public slots:
 private slots:
     void onNewVersion(const UM::NewVersion _version);
     void onGenerationDone();
+    void onQuit();
 
 signals:
     void generationStarted();

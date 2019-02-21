@@ -1,4 +1,5 @@
-#include <QtConcurrentRun>
+#include <QtConcurrentMap>
+#include <functional>
 
 #include "main.h"
 #include "controller.h"
@@ -15,13 +16,17 @@ Controller::Controller(Settings* _settings, Environment* _enviro) :
     m_settings(_settings),
     m_enviro(_enviro)
 {
-    m_generator = new WallpaperGenerator(this);
     m_locked = false;
+
+    m_generator = new WallpaperGenerator(this);
+    m_scanner = new DirectoryScanner(this);
 
     m_mainTimer = new QTimer(this);
     connect(m_mainTimer, SIGNAL(timeout()), this, SLOT(update()));
 
     connect(&m_generatorWatcher, SIGNAL(finished()), this, SLOT(onGenerationDone()));
+
+    connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(onQuit()));
 
     if (lockEnabled() == UM::LOCK_ALL && m_settings->param(UM::CONF::lock_startup).toBool())
     {
@@ -49,6 +54,24 @@ void Controller::quit()
     else
     {
         qApp->quit();
+    }
+}
+
+/**
+ * @brief Activate default set on quit
+ */
+void Controller::onQuit()
+{
+    if (!m_settings->param(UM::CONF::default_set).toString().isEmpty())
+    {
+        Set* set = m_settings->setByUuid(m_settings->param(UM::CONF::default_set).toString());
+
+        if (set != NULL && (m_settings->nbActiveSets() > 1 || set != m_settings->activeSet(0)))
+        {
+            QLOG_DEBUG() << "Set default close set";
+            m_settings->setActiveSets(QList<Set*>() << set);
+            update(false);
+        }
     }
 }
 
@@ -128,7 +151,7 @@ bool Controller::startPause()
 /**
  * @brief Update the wallpaper
  */
-void Controller::update()
+void Controller::update(bool _async)
 {
     QLOG_INFO() << "Update !";
 
@@ -140,11 +163,48 @@ void Controller::update()
     m_enviro->refreshMonitors();
     m_settings->check();
 
-    emit listChanged(false);
     emit generationStarted();
 
-    QFuture<WallpaperGenerator::Result> future = QtConcurrent::run(m_generator, &WallpaperGenerator::generate);
-    m_generatorWatcher.setFuture(future);
+    QList<Set*> sets;
+    for (int i = 0; i < m_settings->nbSets(); i++)
+    {
+        Set* set = m_settings->set(i);
+        if (set->isActive() && set->isValid())
+        {
+            sets.append(set);
+        }
+    }
+
+    std::function<bool(Set* _set)> scan = [this] (Set* _set) {
+        return m_scanner->scan(_set);
+    };
+
+    auto generate = [this, sets] (ScanAndGenerateResult &_result, const bool &) {
+        _result.done++;
+        if (_result.done == sets.size())
+        {
+            QLOG_INFO() << "Scan done, begin generation";
+            _result.result = m_generator->generate();
+        }
+    };
+
+    if (_async)
+    {
+        QFuture<ScanAndGenerateResult> future = QtConcurrent::mappedReduced<ScanAndGenerateResult>(sets, scan, generate);
+        m_generatorWatcher.setFuture(future);
+    }
+    else
+    {
+        ScanAndGenerateResult result;
+        foreach (auto set, sets)
+        {
+            generate(result, scan(set));
+        }
+
+        m_current = result.result;
+        emit generationFinished();
+        emit listChanged(false);
+    }
 }
 
 /**
@@ -152,9 +212,21 @@ void Controller::update()
  */
 void Controller::onGenerationDone()
 {
-    m_current = m_generatorWatcher.future().result();
+    m_current = m_generatorWatcher.future().result().result;
 
     emit generationFinished();
+    emit listChanged(false);
+}
+
+/**
+ * @brief Clear sets cache of selected sets
+ */
+void Controller::clearCache()
+{
+    for (int i=0, l=m_settings->nbSets(); i<l; i++)
+    {
+        m_settings->set(i)->deleteCache();
+    }
 }
 
 /**

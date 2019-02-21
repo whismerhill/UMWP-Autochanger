@@ -93,6 +93,7 @@ WallpaperGenerator::Result WallpaperGenerator::generate()
     }
 
     m_enviro->setWallpaper(generateFile(tempFiles, &result));
+    cleanCustLayoutTemp();
 
     QLOG_DEBUG() << "Current type:" << result.type;
     QLOG_DEBUG() << "Current sets:" << result.sets;
@@ -359,7 +360,6 @@ QString WallpaperGenerator::getNextFile(Set* _set)
     current.file = file;
     current.index = index;
     _set->setCurrent(current);
-    _set->writeCache();
 
     return file;
 }
@@ -451,9 +451,9 @@ QString WallpaperGenerator::generateCustomFile(int _idx, WallpaperGenerator::Res
         QRect newBlock = UM::scaledRect(block, wRatio, hRatio);
 
         // make sure the rect touch the border of the screen
-        if (qAbs(newBlock.left() - scrRect.width()) <= 3)
+        if (qAbs(newBlock.right() - scrRect.width()) <= 3)
         {
-            newBlock.setLeft(scrRect.width()-1);
+            newBlock.setRight(scrRect.width()-1);
         }
 
         if (qAbs(newBlock.bottom() - scrRect.height()) <= 3)
@@ -902,8 +902,8 @@ QRect WallpaperGenerator::getDesktopEnabledRect()
 
         minX = qMin(minX, rect.left());
         minY = qMin(minY, rect.top());
-        maxX = qMax(maxX, rect.left()+rect.width());
-        maxY = qMax(maxY, rect.top()+rect.height());
+        maxX = qMax(maxX, rect.left() + rect.width());
+        maxY = qMax(maxY, rect.top() + rect.height());
     }
 
     return QRect(minX, minY, maxX-minX, maxY-minY);
@@ -966,4 +966,18 @@ QString WallpaperGenerator::getCustLayoutTempFilename(int _idx, Set* _set)
             + _set->uuid() + "-"
             + QString::number(_idx)
             + ".bmp";
+}
+
+/**
+ * @brief Deletes all temp files for custom layouts
+ */
+void WallpaperGenerator::cleanCustLayoutTemp()
+{
+    QDir cache = QDir::tempPath();
+    QStringList files = cache.entryList(QStringList()<<QString(APP_CUSTOM_PREFIX)+"*", QDir::Files);
+
+    foreach (QString file, files)
+    {
+        QFile::remove(cache.absoluteFilePath(file));
+    }
 }

@@ -119,14 +119,15 @@ void Environment::refreshMonitors()
 
     int minX=0, maxX=0, minY=0, maxY=0;
 
-    for (int i = 0; i < desktop->numScreens(); i++) {
+    for (int i = 0; i < desktop->numScreens(); i++)
+    {
         const QRect wpSize = desktop->screenGeometry(i);
         m_wpSizes.insert(i, wpSize);
 
         minX = qMin(minX, wpSize.left());
         minY = qMin(minY, wpSize.top());
-        maxX = qMax(maxX, wpSize.right());
-        maxY = qMax(maxY, wpSize.bottom());
+        maxX = qMax(maxX, wpSize.left() + wpSize.width());
+        maxY = qMax(maxY, wpSize.top() + wpSize.height());
     }
 
     // store whole desktop size with its top-left-most position
